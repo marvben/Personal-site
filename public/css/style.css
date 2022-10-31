@@ -182,6 +182,17 @@ hr{
 
 /*Navigation links*/
 
+.logoImage{
+  height: 60px !important
+}
+
+.logoImage img{
+ height: 100%;
+}
+
+
+
+
 
 .navbar .nav-link.active {
   color: var(--accent-light-blue);
