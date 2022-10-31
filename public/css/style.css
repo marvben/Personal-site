@@ -24,7 +24,9 @@ html {
 body {
   font-family: var(--body-text);
   font-weight: 300;
-  overflow: hidden;
+  overflow: hidden !important;
+  max-width: 100%;
+  min-height: 100vh;
 }
 
 main {
