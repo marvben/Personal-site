@@ -26,7 +26,6 @@ body {
   font-weight: 300;
   overflow-x: hidden !important;
   max-width: 100%;
-  min-height: 100vh;
 }
 
 main {
