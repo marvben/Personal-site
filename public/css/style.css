@@ -695,6 +695,10 @@ display: none !important;
 .new-blog-section .card{
   width:32%
 }
+
+.homePage .section-one,.news-page .section-one{
+  min-height: 550px;
+}
 }
 
 
