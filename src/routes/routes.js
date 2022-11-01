@@ -3,12 +3,16 @@ require("dotenv").config({ path: path.resolve(__dirname, "../../config/.env") })
 const router = require("express").Router();
 const axios = require("axios");
 const moment = require("moment"); // required for getting time and date
+const gmailTransporter = require("../email/email.js");
+const reviews = require("../utils/reviews");
 const Crypto = require("crypto");
 let randomChar;
-const gmailTransporter = require("../email/email.js");
 
 router.get("/", async (req, res) => {
-  res.render("home", { title: "Hello World" });
+  res.render("home", { reviews });
+});
+router.get("/reviews", (req, res) => {
+  res.send(reviews);
 });
 
 router.get("/timeDate", (req, res) => {

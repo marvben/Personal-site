@@ -1,4 +1,4 @@
-//////////////For homepage///////////////////////////////////////
+//////////////For homepage header to sections ScrollTo Gsap plugin///////////////////////////////////////
 // Detect if a link's href goes to the current page
 function getSamePageAnchor(link) {
   if (link.protocol !== window.location.protocol || link.host !== window.location.host || link.pathname !== window.location.pathname || link.search !== window.location.search) {
@@ -26,3 +26,6 @@ document.querySelectorAll("a[href]").forEach((a) => {
 
 // Scroll to the element in the URL's hash on load
 scrollToHash(window.location.hash);
+
+//////////Reviews//////////////
+document.querySelectorAll(".setOfReview")[0].classList.add("active");
