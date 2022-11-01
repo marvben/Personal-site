@@ -618,6 +618,9 @@ min-height: auto;
 
 
 @media (max-width: 965px){
+  .navbar .logoImage, .navbar .navbar-toggler{
+    margin: 0 25px !important;
+     }
 
   .navLinksContainer .navbar-nav{
     min-width: 100%;
@@ -705,9 +708,7 @@ display: none !important;
 @media (max-width: 768px){
   
 
- .navbar .logoImage, .navbar .navbar-toggler{
-margin: 0 25px !important;
- }
+
 
   .bigHeading {
     line-height: 70px !important;
