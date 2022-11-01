@@ -12,6 +12,16 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 
+//adding expire headers
+app.use(
+  express.static(path.join(__dirname, "../public"), {
+    maxAge: 86400000,
+    setHeaders: function (res, path) {
+      res.setHeader("Expires", new Date(Date.now() + 2592000000 * 30).toUTCString());
+    },
+  })
+);
+
 app.listen(port, (err) => {
   if (err) {
     console.log(err);
