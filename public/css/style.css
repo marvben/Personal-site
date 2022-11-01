@@ -762,6 +762,9 @@ h3.subtitle {
 .new-blog-section .card{
   width:100%
 }
+.homePage .section-one,.news-page .section-one{
+  min-height: 100vh;
+}
   
 }
 
