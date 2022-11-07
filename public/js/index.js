@@ -78,3 +78,17 @@ async function getTime() {
 }
 
 setInterval(getTime, 1000);
+
+//  Greained particles
+var option = {
+  animate: true,
+  patternWidth: 263.34,
+  patternHeight: 203.02,
+  grainOpacity: 0.11,
+  grainDensity: 1,
+  grainWidth: 1,
+  grainHeight: 1,
+};
+
+grained("#main", option);
+grained("#testimonial", option);
