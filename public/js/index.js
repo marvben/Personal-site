@@ -92,3 +92,8 @@ var option = {
 
 grained("#main", option);
 grained("#testimonial", option);
+
+//odometer
+// setTimeout(function () {
+//   odometer.innerHTML = 56;
+// }, 1000);

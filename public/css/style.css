@@ -382,7 +382,7 @@ span.stylish-text {
 
 .section-three {
   padding-top: 150px   !important;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .testimonialSection .reviewBox-container {
@@ -488,11 +488,14 @@ p.description.review {
 .section-four {
   min-height: 50vh !important;
   padding-bottom: 2rem !important;
+margin:0 !important
 }
 
 .section-four-curvySection.curvySection {
   background: var(--dark-background);
 }
+
+
 
 /* =============================News page =======================================*/
 
@@ -673,6 +676,7 @@ display: none !important;
   .section-three {
      min-height: 100vh;
     padding-top: 50px   !important;
+    padding-bottom: 50px   !important;
   }
 
   .testimonialSection .carousel-control-next,
