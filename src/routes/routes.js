@@ -35,7 +35,7 @@ res.render("news");
 
 
 router.get("/newsList",async (req,res)=>{
-  const url = `https://newsapi.org/v2/top-headlines?country=${req.query.country}&category=&{req.query.category}&apiKey=${process.env.NEWS_API_KEY}`;
+  const url = `https://newsapi.org/v2/top-headlines?country=${req.query.country}&category={req.query.category}&apiKey=${process.env.NEWS_API_KEY}`;
   try {
     const news = await axios.get(url);
     const newsData = news.data;
