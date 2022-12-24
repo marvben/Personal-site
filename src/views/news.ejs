@@ -3,7 +3,7 @@
 
         <main class="news-page">
             <section class="section-one container-fluid text-light p-0">
-                <div class="container-fluid py-5 px-lg-5 px-md-4 quoteContainer">
+                <div class="container-fluid py-5 px-lg-5 px-md-4 px-3 quoteContainer">
                     <h1 class="display-5 fw-bold quoteAuthor"></h1>
                     <p class="col-md-8 fs-4 my-4 quoteMessage">Loading...</p>
                     <button class="btn button btn-lg btn-light  getButton" type="button">Get New Quote</button>
@@ -15,43 +15,36 @@
                 </div>
             </section>
             <section class="d-flex  flex-column align-items-center section-two light-section">
+
                 <div class="text-center  col-12 col-lg-7 col-md-10 p-md-0 p-4">
                     <h2 class="subtitle mb-0 p-0 text-center">Latest world <span class="stylish-text">News</span>.</h2>
-                    <p class="description description-section--one text-dark mx-auto my-md-5 py-5">These are latest news from <a href="https://mediastack.com/"   target="_blank">Mediastack API.</a>
+                    <p class="description description-section--one text-dark mx-auto my-md-5 py-5">These are top headlines <a href="https://newsapi.org/"   target="_blank">Newsapi. API.</a>
                     </p>
+
+                    <form id="main" class="form-control p-md-5 p-4 rounded-2" >
+                      <label class="form-group text-start d-block w-100" for="region"> Choose Region:
+                        <select id="region" class="form-select form-select-lg mb-3 countryRoot" aria-label="Default select example" name="country">
+                            <option class="text-capitalize"   value="us" >Us</option>
+                        </select>
+                      </label>
+
+                        <label class="form-group  text-start d-block w-100" for="category"> Choose Category:</label>
+                          <select id="category" class="form-select form-select-lg mb-3 categoryRoot" aria-label="Default select example" name="categoty">
+                              <option  class="text-capitalize"  value="technology">Technology</option>
+                          </select>
+                    </form>
 
                 </div>
             </section>
 
-            <section class="new-blog-section px-lg-5 px-2 d-flex  flex-column align-items-center justify-content-start">
-
-                <div
-                    class="newsRoot row container-fluid row justify-content-between h-100  my-lg-5 mx-0 article-card order-0">
-
-                    <% newsData.forEach(newesArticle => {   %>
-                      <div class="card col-lg-3 col-md-4 col-5 mb-4 p-0 justify-content-around">
-                        <a href="<%= newesArticle.url %>" target="_blank" >
-                            <img src="<%= newesArticle.image || "https://picsum.photos/300" %>"
-                                class="card-img-top" alt="...">
-                            <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                <h5 class="card-title m-2 text-dark">
-                                    <%= newesArticle.title %>
-                                </h5>
-                                <p class="card-text m-1 description text-dark">
-                                  <%= newesArticle.description.slice(0, 50) %>
-                                </p>
-                                <a href="<%= newesArticle.url %>" target="_blank" class="btn button btn-lg btn-light m-1 newsSource">From  <%= newesArticle.source %></a>
-                                <p class="m-1"><strong>Author:</strong>
-                                  <%= newesArticle.author|| "Unanimous" %>
-                                </p>
-                            </div>
-                        </a>
-                      </div>
-                    <%  });  %>
-
-
+            <section class="new-blog-section p-md-5 p-2 d-flex  flex-column align-items-center justify-content-start">
+              <div class="spinner-grow loadingSpinner mt-5" style="width: 10rem; height: 10rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+                <div class="newsRoot row container-fluid row justify-content-between h-100  my-lg-5 mx-0 article-card order-0">
 
                 </div>
+
             </section>
 
             <div class="container-fluid p-0 m-0 curvySection">
