@@ -26,18 +26,18 @@ router.get("/news", async (req, res) => {
 
 router.get("/contact", async (req, res) => {
   randomChar = Crypto.randomBytes(21).toString("base64").slice(0, 5);
-  console.log(randomChar);
   res.render("contact", { randomChar });
 });
 
 router.get("/newsList", async (req, res) => {
   const randomNum = Math.floor(Math.random() * 100);
-  const url = `http://api.mediastack.com/v1/news?access_key=${process.env.NEWS_API_KEY}&offset=${randomNum}&limit=28&languages=en`;
+  const url = `http://api.mediastack.com/v1/news?access_key=${process.env.NEWS_API_KEY}&offset=${randomNum}&limit=12&languages=en`;
   try {
     const news = await axios.get(url);
     const newsData = news.data.data;
+    console.log(newsData)
     // res.render("news", { newsData: newsData });
-    res.send(newsData);
+    res.json(newsData);
   } catch (error) {
     console.log(error);
   }

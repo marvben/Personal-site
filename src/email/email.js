@@ -12,7 +12,7 @@ function gmailTransporter(formData) {
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_STRING,
+    from: formData.email,
     to: process.env.RECEIVING_EMAIL,
     subject: "Message From My Personal Site",
     html: `<h1>Message from ${formData.name}</h1>
