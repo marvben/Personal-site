@@ -526,7 +526,7 @@ min-height: auto;
 }
 
 .new-blog-section {
-  min-height: 3400px;
+
   max-width: 1400px;
   margin-top: -15rem;
 }
@@ -575,14 +575,16 @@ min-height: auto;
 
 }
 
-.contactPage form {
+.contactPage form, .news-page form {
   background: none;
   border: none;
   box-shadow: 10px 10px 55px 1px rgba(0, 0, 0, 0.1);
+
 }
-.contactPage form::before{
+.contactPage form::before, .news-page form::before{
 z-index: -1;
 }
+
 
 /* ////////////====Footer====//////////// */
 .footerSection {
@@ -590,7 +592,7 @@ z-index: -1;
 }
 
 .footerSection a.logo {
- 
+
   transition: all 0.3s ease-in;
   display: inline-block;
 }
@@ -656,7 +658,7 @@ line-height: 50px !important;
   }
 
 
-  h2{ 
+  h2{
     font-size: 3rem !important;
   }
 
@@ -718,7 +720,7 @@ display: none !important;
 
 
 @media (max-width: 768px){
-  
+
 
 
 
@@ -762,7 +764,7 @@ h3.subtitle {
   /* ==========Contact page=============== */
   .contactPage section {
     padding: 200px 20px 100px;
-  
+
   }
 
   /* ==========News page=============== */
@@ -773,19 +775,5 @@ h3.subtitle {
 .homePage .section-one,.news-page .section-one{
   min-height: 100vh;
 }
-  
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -89,9 +89,8 @@ var option = {
   grainWidth: 1,
   grainHeight: 1,
 };
-
-grained("#main", option);
 grained("#testimonial", option);
+grained("#main", option);
 
 //odometer
 // setTimeout(function () {
