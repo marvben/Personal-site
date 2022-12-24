@@ -21,7 +21,16 @@ router.get("/timeDate", (req, res) => {
 });
 
 router.get("/news", async (req, res) => {
-  res.render("news");
+  const randomNum = Math.floor(Math.random() * 100);
+  const url = `http://api.mediastack.com/v1/news?access_key=${process.env.NEWS_API_KEY}&offset=${randomNum}&limit=12&languages=en`;
+  try {
+    const news = await axios.get(url);
+    const newsData = news.data.data;
+    res.render("news", {newsData});
+  } catch (error) {
+    console.log(error);
+  }
+
 });
 
 router.get("/contact", async (req, res) => {
@@ -29,26 +38,11 @@ router.get("/contact", async (req, res) => {
   res.render("contact", { randomChar });
 });
 
-router.get("/newsList", async (req, res) => {
-  const randomNum = Math.floor(Math.random() * 100);
-  const url = `http://api.mediastack.com/v1/news?access_key=${process.env.NEWS_API_KEY}&offset=${randomNum}&limit=12&languages=en`;
-  try {
-    const news = await axios.get(url);
-    const newsData = news.data.data;
-    console.log(newsData)
-    // res.render("news", { newsData: newsData });
-    res.json(newsData);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 router.get("/motivation", async (req, res) => {
   const url = "https://zenquotes.io/api/quotes/";
   try {
     const news = await axios.get(url);
     const newsData = news.data;
-    // res.render("news", { newsData: newsData });
     res.send(newsData);
   } catch (error) {
     console.log(error);

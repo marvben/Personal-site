@@ -27,6 +27,30 @@
 
                 <div
                     class="newsRoot row container-fluid row justify-content-between h-100  my-lg-5 mx-0 article-card order-0">
+
+                    <% newsData.forEach(newesArticle => {   %>
+                      <div class="card col-lg-3 col-md-4 col-5 mb-4 p-0 justify-content-around">
+                        <a href="<%= newesArticle.url %>" target="_blank" >
+                            <img src="<%= newesArticle.image || "https://picsum.photos/300" %>"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column justify-content-between align-items-start">
+                                <h5 class="card-title m-2 text-dark">
+                                    <%= newesArticle.title %>
+                                </h5>
+                                <p class="card-text m-1 description text-dark">
+                                  <%= newesArticle.description.slice(0, 50) %>
+                                </p>
+                                <a href="<%= newesArticle.url %>" target="_blank" class="btn button btn-lg btn-light m-1 newsSource">From  <%= newesArticle.source %></a>
+                                <p class="m-1"><strong>Author:</strong>
+                                  <%= newesArticle.author|| "Unanimous" %>
+                                </p>
+                            </div>
+                        </a>
+                      </div>
+                    <%  });  %>
+
+
+
                 </div>
             </section>
 
