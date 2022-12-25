@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // compress all responses. Should be placed before all routes
 app.use(compression());
-app.use( routes);
+app.use("/", routes);
 app.use(express.static(path.join(__dirname, "../public")));
 
 // set the view engine to ejs

@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   res.render("home", { reviews });
 });
 router.get("/reviews", (req, res) => {
-  res.send(reviews);
+  res.json(reviews);
 });
 
 router.get("/timeDate", (req, res) => {
@@ -39,7 +39,7 @@ router.get("/newsList",async (req,res)=>{
   try {
     const news = await axios.get(url);
     const newsData = news.data;
-    res.json(newsData);
+    res.send(newsData);
   } catch (error) {
     console.log(error);
   }

@@ -142,6 +142,7 @@ async function getNews({countryName,categoryName}={}) {
 root.innerHTML=``;
 loadingSpinner.classList.remove("d-none")
   const news = await axios.get(`/newsList?country=${countryName}&category=${categoryName}`);
+  console.log(news.data.articles);
   news.data.articles.forEach((newsArticle) => {
     const newContainer = document.createElement("div");
     newContainer.classList = "card col-lg-3 col-md-4 col-12 mb-4 p-0 justify-content-around ";
