@@ -1,5 +1,6 @@
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../config/.env") });
+require("dotenv").config()
 const router = require("express").Router();
 const axios = require("axios");
 const moment = require("moment"); // required for getting time and date
