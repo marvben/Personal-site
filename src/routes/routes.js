@@ -1,6 +1,5 @@
-// const path = require("path");
-// require("dotenv").config({ path: path.resolve(__dirname, "../../config/.env") });
-require("dotenv").config()
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../config/.env") });
 const router = require("express").Router();
 const axios = require("axios");
 const moment = require("moment"); // required for getting time and date
@@ -36,10 +35,11 @@ res.render("news");
 
 
 router.get("/newsList",async (req,res)=>{
-  const url = `https://newsapi.org/v2/top-headlines?country=${req.query.country}&category={req.query.category}&apiKey=${process.env.NEWS_API_KEY}`;
+  const url = `https://newsapi.org/v2/top-headlines?apiKey=${process.env.NEWS_API_KEY}&country=${req.query.country}&category={req.query.category}`;
   try {
     const news = await axios.get(url);
     const newsData = news.data;
+    console.log(newsData)
     res.send(newsData);
   } catch (error) {
     console.log(error);
