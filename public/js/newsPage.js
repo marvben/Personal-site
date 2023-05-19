@@ -1,8 +1,8 @@
 window.addEventListener("load", async (event) => {
   getQuote().catch((err) => console.log(err));
   getNews(newsParams).catch((err) => console.log(err));
-  categoryList()
-  countryList()
+  categoryList();
+  countryList();
 });
 
 // setInterval(() => {
@@ -38,40 +38,39 @@ async function getQuote() {
 //   }
 // }
 
-
 const countryRoot = document.querySelector(".countryRoot");
 const categoryRoot = document.querySelector(".categoryRoot");
 const root = document.querySelector(".newsRoot");
-const loadingSpinner = document.querySelector(".loadingSpinner")
+const loadingSpinner = document.querySelector(".loadingSpinner");
 const newsParams = {
-  categoryName:"technology",
-  countryName:"us"
-}
+  categoryName: "technology",
+  countryName: "us",
+};
 
-categoryRoot.addEventListener("change", async(e)=>{
+categoryRoot.addEventListener("change", async (e) => {
   newsParams.categoryName = e.target.value;
- await getNews(newsParams)
+  await getNews(newsParams);
 });
 
-countryRoot.addEventListener("change", async(e)=>{
-    newsParams.countryName = e.target.value;
-  await getNews(newsParams)
+countryRoot.addEventListener("change", async (e) => {
+  newsParams.countryName = e.target.value;
+  await getNews(newsParams);
 });
 
-const categoryList = ()=>{
-    const categoryParams=["business", "entertainment", "general", "health", "science", "sports"];
-    categoryParams.forEach((category) => {
-      const option = document.createElement("option");
-      option.name=category;
-      option.value=category;
-        option.innerText=category;
-      option.classList = "text-capitalize";
-      categoryRoot.appendChild(option);
-    });
-}
+const categoryList = () => {
+  const categoryParams = ["business", "entertainment", "general", "health", "science", "sports"];
+  categoryParams.forEach((category) => {
+    const option = document.createElement("option");
+    option.name = category;
+    option.value = category;
+    option.innerText = category;
+    option.classList = "text-capitalize";
+    categoryRoot.appendChild(option);
+  });
+};
 
-const countryList = ()=>{
-    const countryParams=[
+const countryList = () => {
+  const countryParams = [
     "ae",
     "ar",
     "at",
@@ -125,27 +124,25 @@ const countryList = ()=>{
     "ua",
     "ve",
     "za",
-]
-countryParams.forEach((country) => {
-  const option = document.createElement("option");
-  option.name=country;
-  option.value=country;
-    option.innerText=country;
-  option.classList = "text-capitalize";
-  countryRoot.appendChild(option);
-});
+  ];
+  countryParams.forEach((country) => {
+    const option = document.createElement("option");
+    option.name = country;
+    option.value = country;
+    option.innerText = country;
+    option.classList = "text-capitalize";
+    countryRoot.appendChild(option);
+  });
+};
 
-}
-
-
-async function getNews({countryName,categoryName}={}) {
-root.innerHTML=``;
-loadingSpinner.classList.remove("d-none")
+async function getNews({ countryName, categoryName } = {}) {
+  root.innerHTML = ``;
+  loadingSpinner.classList.remove("d-none");
   const news = await axios.get(`/newsList?country=${countryName}&category=${categoryName}`);
-  console.log(news.data.articles)
-  if(!news.data.articles.length){
-    root.innerHTML=`<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`
-  }else{
+  console.log(news.data.articles);
+  if (!news.data.articles.length) {
+    root.innerHTML = `<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`;
+  } else {
     news.data.articles.forEach((newsArticle) => {
       const newContainer = document.createElement("div");
       newContainer.classList = "card col-lg-3 col-md-4 col-12 mb-4 p-0 justify-content-around ";
@@ -154,13 +151,13 @@ loadingSpinner.classList.remove("d-none")
     });
   }
 
-  loadingSpinner.classList.add("d-none")
+  loadingSpinner.classList.add("d-none");
 }
 
 const newsTemplate = (newsArticle) => {
-  const { title, description ,url , urlToImage, source, author } = newsArticle;
+  const { title, description, url, urlToImage, source, author } = newsArticle;
   return `<a href="${url}" target="_blank" >
-      <img src="${urlToImage || 'https://picsum.photos/300'}"
+      <img src="${urlToImage || "https://picsum.photos/300"}"
           class="card-img-top" alt="...">
       <div class="card-body d-flex flex-column justify-content-between align-items-start">
           <h5 class="card-title m-2 text-dark">
@@ -177,17 +174,3 @@ const newsTemplate = (newsArticle) => {
   </a>
   `;
 };
-
-
-//  Greained particles
-var option = {
-  animate: true,
-  patternWidth: 263.34,
-  patternHeight: 203.02,
-  grainOpacity: 0.11,
-  grainDensity: 1,
-  grainWidth: 1,
-  grainHeight: 1,
-};
-
-grained("#main", option);

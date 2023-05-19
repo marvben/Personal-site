@@ -6,7 +6,8 @@
             <section class="email--page flex-column align-items-center justify-content-center">
                 <div class="text-center ">
                     <h2 class="subtitle mb-0 p-0 text-center">Get In <span class="stylish-text">Touch</span>.</h2>
-                    <p class="description description-section--one my-5">Welcome to my contact page! If you have any questions or concerns about my services, please don't hesitate to reach out to me.
+                    <p class="description description-section--one my-5">Welcome to my contact page! If you have any
+                        questions or concerns about my services, please don't hesitate to reach out to me.
                     </p>
                 </div>
                 <form id="main" action="contact" method="post" class="form-control p-md-5 p-4 rounded-2">
@@ -25,12 +26,13 @@
 
                     <textarea class="form-control rounded-4 description mb-4" name="content" rows="6"
                         placeholder="Enter your Message" required></textarea>
-                    <label class="container p-0 mb-4" for="iAmHumanCalculation">
+                    <label class="container p-0 mb-4 verificationLabel" for="iAmHumanCalculation">
                         <%=randomChar%>
-                            <input class="form-control py-3 mt-1 rounded-2 description" type="text"
+                            <input class="verificationInput form-control py-3 mt-1 rounded-2 description" type="text"
                                 name="iAmHumanCalculation" id="iAmHumanCalculation" required
                                 placeholder="Enter value above:">
                     </label>
+                    <p class="isVerified"></p>
                     <div class="col-auto mt-5">
                         <button type="submit" class="btn button btn-lg btn-light ">Send Message</button>
                     </div>

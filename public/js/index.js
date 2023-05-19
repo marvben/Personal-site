@@ -12,6 +12,21 @@ function scrollFunction() {
   }
 }
 
+///Footer time timeDate
+
+window.addEventListener("load", (event) => {
+  getTime().catch((err) => console.log(err));
+});
+
+async function getTime() {
+  const time = await axios.get("/timeDate");
+  const footerText = document.querySelector("footer p.copyright");
+  footerText.innerText = time.data;
+  return;
+}
+
+setInterval(getTime, 1000);
+
 ////section one
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,23 +78,7 @@ gsap.from(".skill", {
   ease: "circ",
 });
 
-///Footer time timeDate
-
-window.addEventListener("load", (event) => {
-  getTime().catch((err) => console.log(err));
-});
-
-async function getTime() {
-  const time = await axios.get("/timeDate");
-  const footerText = document.querySelector("footer p.copyright");
-  footerText.innerText = time.data;
-
-  return;
-}
-
-setInterval(getTime, 1000);
-
-//  Greained particles
+//  Grained particles on contact page
 var option = {
   animate: true,
   patternWidth: 263.34,
@@ -89,10 +88,36 @@ var option = {
   grainWidth: 1,
   grainHeight: 1,
 };
-grained("#testimonial", option);
-grained("#main", option);
+
+let testimonial = document.querySelector("#testimonial");
+let main = document.querySelector("#main");
+let newsForm = document.querySelector("#newsForm");
+if (testimonial) {
+  grained("#testimonial", option);
+}
+if (main) {
+  console.log(main);
+  grained("#main", option);
+}
+if (newsForm) {
+  grained("#newsForm", option);
+}
 
 //odometer
 // setTimeout(function () {
 //   odometer.innerHTML = 56;
 // }, 1000);
+
+//check if verification works
+const verificationInput = document.querySelector(".verificationInput");
+const verificationLabel = document.querySelector(".verificationLabel");
+const isVerified = document.querySelector(".isVerified");
+if (verificationInput) {
+  verificationInput.addEventListener("input", function (e) {
+    if (verificationLabel.innerText == e.target.value) {
+      isVerified.innerHTML = `<span class="text-success">Verified <i class="fa-solid fa-circle-check "></i></span>`;
+    } else {
+      isVerified.innerHTML = `<span class="text-danger">Not Verified <i class="fa-solid fa-circle-xmark"></i></span>`;
+    }
+  });
+}

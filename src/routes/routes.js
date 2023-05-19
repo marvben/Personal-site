@@ -30,21 +30,20 @@ router.get("/news", async (req, res) => {
   // } catch (error) {
   //   console.log(error);
   // }
-res.render("news");
+  res.render("news");
 });
 
-
-router.get("/newsList",async (req,res)=>{
+router.get("/newsList", async (req, res) => {
   const url = `https://newsapi.org/v2/top-headlines?apiKey=${process.env.NEWS_API_KEY}&country=${req.query.country}&category={req.query.category}`;
   try {
     const news = await axios.get(url);
     const newsData = news.data;
-    console.log(newsData)
+    console.log(newsData);
     res.send(newsData);
   } catch (error) {
     console.log(error);
   }
-} )
+});
 
 router.get("/contact", async (req, res) => {
   randomChar = Crypto.randomBytes(21).toString("base64").slice(0, 5);
