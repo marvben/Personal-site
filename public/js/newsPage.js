@@ -139,7 +139,7 @@ async function getNews({ countryName, categoryName } = {}) {
   root.innerHTML = ``;
   loadingSpinner.classList.remove("d-none");
   const news = await axios.get(`/newsList?country=${countryName}&category=${categoryName}`);
-  console.log(news.data.articles);
+  console.log(news.data);
   if (!news.data.articles.length) {
     root.innerHTML = `<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`;
   } else {
