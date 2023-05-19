@@ -136,22 +136,27 @@ const countryList = () => {
 };
 
 async function getNews({ countryName, categoryName } = {}) {
-  root.innerHTML = ``;
-  loadingSpinner.classList.remove("d-none");
-  const news = await axios.get(`/newsList?country=${countryName}&category=${categoryName}`);
-  console.log(news.data);
-  if (!news.data.articles.length) {
-    root.innerHTML = `<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`;
-  } else {
-    news.data.articles.forEach((newsArticle) => {
-      const newContainer = document.createElement("div");
-      newContainer.classList = "card col-lg-3 col-md-4 col-12 mb-4 p-0 justify-content-around ";
-      newContainer.innerHTML = newsTemplate(newsArticle);
-      root.appendChild(newContainer);
-    });
-  }
-
+  root.innerHTML = `<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`;
   loadingSpinner.classList.add("d-none");
+
+  //removed news APi calls because I am on free tier.
+
+  // root.innerHTML = ``;
+  // loadingSpinner.classList.remove("d-none");
+  // const news = await axios.get(`/newsList?country=${countryName}&category=${categoryName}`);
+  // console.log(news.data);
+  // if (!news.data.articles.length) {
+  //   root.innerHTML = `<p class="text-center">Current API plan only works on local environment. Upgrade to use on development<p>`;
+  // } else {
+  //   news.data.articles.forEach((newsArticle) => {
+  //     const newContainer = document.createElement("div");
+  //     newContainer.classList = "card col-lg-3 col-md-4 col-12 mb-4 p-0 justify-content-around ";
+  //     newContainer.innerHTML = newsTemplate(newsArticle);
+  //     root.appendChild(newContainer);
+  //   });
+  // }
+
+  // loadingSpinner.classList.add("d-none");
 }
 
 const newsTemplate = (newsArticle) => {
