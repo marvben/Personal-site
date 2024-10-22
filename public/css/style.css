@@ -114,6 +114,10 @@ hr{
   border: none !important;
   height: 1px;
 }
+/* Hides html tag at the bottom of page due to loom chrome xetension */
+#loom-companion-mv3{
+  display:none  !important;
+}
 
 .dark-section{
   background: var(--dark-background);
