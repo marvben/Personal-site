@@ -316,10 +316,10 @@ span.stylish-text {
 
 @keyframes animateImageBox {
   from{
-    transform: translate(-5%, -5%);
+    transform: translate(-2%, -2%);
   }
   to{
-    transform: translate(5%, 5%) !important;
+    transform: translate(2%, 2%);
   }
 }
 
@@ -366,10 +366,10 @@ span.stylish-text {
 
 @keyframes animateImageBorderBox {
   from{
-    transform: translate(10%, 10%);
+    transform: translate(2%, 2%);
   }
   to{
-    transform: translate(-5%, -5%)!important;
+    transform: translate(-2%, -2%)!important;
   }
 }
 
