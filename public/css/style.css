@@ -369,7 +369,7 @@ span.stylish-text {
     transform: translate(2%, 2%);
   }
   to{
-    transform: translate(-2%, -2%)!important;
+    transform: translate(-2%, -2%);
   }
 }
 
