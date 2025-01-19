@@ -505,8 +505,8 @@ margin:0 !important
 
 .news-page .section-one{
 background-color: var(--dark-background);
-min-height: 70vh;
-height: 70vh;
+min-height: 500px;
+height: 100vh;
 background-image: url("https://picsum.photos/1400/800?grayscale");
 background-position: center;
 background-size: cover;
